@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - ./rabbitmq/dados:/var/lib/rabbitmq
+    
+  servidor:
+    build:
+      context: ./servidor
+      dockerfile: Dockerfile
+    container_name: servidor
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./servidor:/app
+    depends_on:
+      - rabbitmq
