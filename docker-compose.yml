@@ -13,6 +13,37 @@ services:
       RABBITMQ_DEFAULT_PASS: guest
     volumes:
       - ./rabbitmq/dados:/var/lib/rabbitmq
+  
+  # Serviço do Spring Boot
+  backend:
+    build:
+      context: ./spring # Diretório do Spring Boot
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/mydb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: example
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+    depends_on:
+      - rabbitmq
+      - database
+
+  # Banco de dados MySQL
+  database:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mydb
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
     
   servidor:
     build:
