@@ -1,7 +1,7 @@
-# Sincronizacao_entre_Threads
+ # Sincronizacao_entre_Threads
 Avaliação de Produto 2, Matéria: Elaboração e Montagem de Infraestrutura de Servidores...Avaliação de Produto 2, Matéria: Elaboração e Montagem de Infraestrutura de Servidores...
 
-# Mode de Execução:
+ # Mode de Execução:
 Desenvolver uma aplicação completa utilizando a stack tecnológica estudada ao longo do semestre, integrando conhecimentos de AWS SQS, AWS S3, Docker, Docker-Compose, Java, Spring-Boot, comunicação via API REST JSON, AWS EC2, Git, GitHub, GitHub Actions e AWS DynamoDB.
 
 #Descrição do Trabalho:
@@ -9,7 +9,7 @@ Vocês deverão desenvolver uma aplicação web para gerenciamento de tarefas (T
 
     Backend (Tecnologia a critério do aluno):
 
-#Implementar um serviço RESTful para gerenciar as tarefas (CRUD).
+ #Implementar um serviço RESTful para gerenciar as tarefas (CRUD).
  > Incluir tarefa;
  > Apagar tarefa;
  > Consultar lista de tarefas;
